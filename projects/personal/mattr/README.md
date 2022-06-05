@@ -13,7 +13,8 @@
 
 ### <a href="phaser/template/README.md">Phaser Template</a>
 
+***Note: This template is work in progress, but can be used to create a new phaser project if needed.  You'll just need to strip out the parts you don't need.***
+
 ### <a href="phaser/karatechamp/README.md">Karate Champ</a>
-***Note: This project is incomplete, but can be used as a template if you so desire to start a new phaser game***
 
 ### <a href="phaser/pong/README.md">Pong</a>
