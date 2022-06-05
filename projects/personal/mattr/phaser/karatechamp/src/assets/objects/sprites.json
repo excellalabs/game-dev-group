@@ -1,0 +1,119 @@
+{
+    "frames": [
+      {
+        "filename": "vase1",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 50
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 50
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 50
+        }
+      },
+      {
+        "filename": "vase2",
+        "frame": {
+          "x": 43,
+          "y": 0,
+          "w": 42,
+          "h": 50
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 50
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 50
+        }
+      },
+      {
+        "filename": "vase3",
+        "frame": {
+          "x": 0,
+          "y": 51,
+          "w": 42,
+          "h": 50
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 50
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 50
+        }
+      },
+      {
+        "filename": "vase4",
+        "frame": {
+          "x": 43,
+          "y": 51,
+          "w": 42,
+          "h": 50
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 50
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 50
+        }
+      },
+      {
+        "filename": "vase5",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 50
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 50
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 50
+        }
+      }
+    ],
+    "meta": {
+      "app": "https://www.leshylabs.com/apps/sstool/",
+      "version": "Leshy SpriteSheet Tool v0.8.4",
+      "image": "spritesheet.png",
+      "size": {
+        "w": 128,
+        "h": 101
+      },
+      "scale": 1
+    }
+  }

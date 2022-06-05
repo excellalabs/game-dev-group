@@ -1,0 +1,22 @@
+[
+	{
+		"label": "middleblock",
+		"frames": ["05", "06", "07"],
+		"direction": "forward"
+	},
+	{
+		"label": "lowblock",
+		"frames": ["05", "06", "07"],
+		"direction": "forward"
+	},
+	{
+		"label": "highblock",
+		"frames": ["03", "04", "05", "06", "07", "08"],
+		"direction": "forward"
+    },
+    {
+        "label": "jumping",
+        "frames": ["07", "08"],
+        "direction": "both"
+    }
+]
