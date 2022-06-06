@@ -48,31 +48,27 @@ Game Board
 
 ### Player Movement
 
-_x__ back kick = right stick left
-_X__ round kick = right stik up
-_X__ front kick = right stick right
-_X__ low kick = right stick down
-_X__ front leg sweep = left stick down, right stick right
-___ back leg sweep = left stick down, right stick left
-_X__ spinning heal kick = left stick right, right stick left
-_X__ flying side kick = left stick up, right stick right
 
-_x__ front flip = left stick up, right stick down
-_X__ back flip = left stick down, right stick up
-
-_X__ move forward = left stick right
-_X__ move backward = left stick left
-_X__ jump = left stick up
-_X__ squat = left stick down
-
-___ reverse punch = left shoulder + right stick right
-___ squating reverse punch = left shoulder + right stick down
-_x__ thrust punch = left stick right + right stick right
-___ (new) back fist = left shoulder + right stick right
-___ (new) spinning back fist = left shoulder + left stick left + right stick right
-
-_x__ high block = left shoulder + left stick up
-_x__ middle block = left shoulder + left stick back
-_x__ low block = left shoulder + left stick down
-
-_x__ change direction = right shoulder
+- back kick = right stick left
+- round kick = right stik up
+- front kick = right stick right
+- low kick = right stick down
+- front leg sweep = left stick down, right stick right
+- back leg sweep = left stick down, right stick left
+- spinning heal kick = left stick right, right stick left
+- flying side kick = left stick up, right stick right
+- front flip = left stick up, right stick down
+- back flip = left stick down, right stick up
+- move forward = left stick right
+- move backward = left stick left
+- jump = left stick up
+- squat = left stick down
+- reverse punch = left shoulder + right stick right
+- squating reverse punch = left shoulder + right stick down
+- thrust punch = left stick right + right stick right
+- (new) back fist = left shoulder + right stick right
+- (new) spinning back fist = left shoulder + left stick left + right stick right
+- high block = left shoulder + left stick up
+- middle block = left shoulder + left stick back
+- low block = left shoulder + left stick down
+- change direction = right shoulder
