@@ -62,12 +62,15 @@ a typical way to use these two methods together is to maybe prototype with bluep
     * the wires that are created between pins are called "connections"
     * productivity tip, you don't have to right click to create new nodes if you are going to connect them to an existing one, just click and drag off of that node's pin, when you release it brings up tha tcontext menu, when you create the nodes will already be connected.
     * There are execution pins at the top of nodes principally for wiring nodes together, but there are also data pins which correspond to the data that is input to or produced from a node.
+* in the consext menu that lets you pick nodes, there is a checkbox for 'Context Sensitive' This is important because if you are getting to the context menu from an existing node's execution pins, having this box checked means the options the context menu provides for branching nodes will be restricted to those using the node you branched off of.
 
 ## Simulating Physics For Actors
     * in the outliner view, under the details tab, there are actor properties and components. there are several buttons available to toggle through actor properties
     * one of those buttons is Physics, and within the list that appears under Physics there is a checkbox to 'Simulate Physics', checking that turn on physics simulation for that object
     * other useful basic properties in this view, 'Enable Gravity' and Mass, you can make it heavier or lighter. 
     * careful to make sure that all actors that you want to behave like part of the physical world have physics enabled, or you might see some intersting behavior (objects moving through others and bouncing back out, for example).
+    * you can get the static mesh component for actors inside a blueprint and then get some of the properties off of these copmonents directly and change them based on events. 
+        * example, you can get the static mesh component for a cube object that has mass of 100.0 and then you can add a node for 'add impulse' to apply immediate force to the object corresponding to some vector in (x, y, z) coordinate space. There is also a box you can check on the 'add impulse' node that allows you to directly change the velocity, called 'Vel Change'
 
 ## Connection between all this and OO coding
     * you can think of Actors as different types of objects that  Unreal tracks and can be used in levels
@@ -76,5 +79,4 @@ a typical way to use these two methods together is to maybe prototype with bluep
     * components are linked to the actor through references, so memory is dynamically allocated to hold portions of these larger more complex objects when it is necessary
     * When you use blueprints to get a reference to a node in your scene (right clik the actor in the viewport and then go to level blueprint and right click and click 'get reference to xx'), that is how runtime will know to go to that address in memory and retrieve the reference to that object you selected, then you can get things off of it using pins and connectors.
 
-** 
 
