@@ -62,4 +62,8 @@ a typical way to use these two methods together is to maybe prototype with bluep
     * the wires that are created between pins are called "connections"
     * productivity tip, you don't have to right click to create new nodes if you are going to connect them to an existing one, just click and drag off of that node's pin, when you release it brings up tha tcontext menu, when you create the nodes will already be connected.
 
-
+## Simulating Physics For Actors
+    * in the outliner view, under the details tab, there are actor properties and components. there are several buttons available to toggle through actor properties
+    * one of those buttons is Physics, and within the list that appears under Physics there is a checkbox to 'Simulate Physics', checking that turn on physics simulation for that object
+    * other useful basic properties in this view, 'Enable Gravity' and Mass, you can make it heavier or lighter. 
+    * careful to make sure that all actors that you want to behave like part of the physical world have physics enabled, or you might see some intersting behavior (objects moving through others and bouncing back out, for example).
