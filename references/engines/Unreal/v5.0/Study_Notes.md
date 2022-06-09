@@ -58,12 +58,23 @@ a typical way to use these two methods together is to maybe prototype with bluep
     * selecting from that context menu will usually add a node to your event graph, this is precreated functionality
     * there are different types of nodes, on type is the event node which is a node that will trigger when an event happens
     * you can think of blueprints as connecting together these nodes in like a circuit so that execution flow triggers events that fire nodes and result in funcitonality
-    * you associate nodes to each other with pins, those are the arrows that are on the left and right side of nodes
+    * you associate nodes to each other with Execution pins which specify when a node should be run and what it connects to, those are the arrows that are on the left and right side of nodes
     * the wires that are created between pins are called "connections"
     * productivity tip, you don't have to right click to create new nodes if you are going to connect them to an existing one, just click and drag off of that node's pin, when you release it brings up tha tcontext menu, when you create the nodes will already be connected.
+    * There are execution pins at the top of nodes principally for wiring nodes together, but there are also data pins which correspond to the data that is input to or produced from a node.
 
 ## Simulating Physics For Actors
     * in the outliner view, under the details tab, there are actor properties and components. there are several buttons available to toggle through actor properties
     * one of those buttons is Physics, and within the list that appears under Physics there is a checkbox to 'Simulate Physics', checking that turn on physics simulation for that object
     * other useful basic properties in this view, 'Enable Gravity' and Mass, you can make it heavier or lighter. 
     * careful to make sure that all actors that you want to behave like part of the physical world have physics enabled, or you might see some intersting behavior (objects moving through others and bouncing back out, for example).
+
+## Connection between all this and OO coding
+    * you can think of Actors as different types of objects that  Unreal tracks and can be used in levels
+    * nodes are the methods on those objects, so functions within their scope
+    * other type of object that Unreal has more or less baked in is components. Unreal uses the component object model, so Actor objects have sets of component objects that allow data and behavior encapsulated into these components to be modularly added to the actor. 
+    * components are linked to the actor through references, so memory is dynamically allocated to hold portions of these larger more complex objects when it is necessary
+    * When you use blueprints to get a reference to a node in your scene (right clik the actor in the viewport and then go to level blueprint and right click and click 'get reference to xx'), that is how runtime will know to go to that address in memory and retrieve the reference to that object you selected, then you can get things off of it using pins and connectors.
+
+** 
+
