@@ -3,22 +3,22 @@ Repository for the game developers group.  If you're not part of the game-develo
 
 ## Happy Game Programming!!!
 
-### > Projects
+### Projects
 Both personal and team projects that members are woking on
 
-### > References
+### References
 Various references and documents for supporting game development
 
 ### Current Members:
 
 
-- [Andrew Griffith](projects/personal/andrewg/README.md)
-- [Ashim Khadka](projects/personal/ashimk/README.md)
-- [Ben Manekin](projects/personal/benm/README.md)
-- [Bradley Hart](projects/personal/bradleyh/README.md)
-- [Eric Honour](projects/personal/erich/README.md)
-- [Matt Ratliff](projects/personal/mattr/README.md)
-- [Robert Ferney](projects/personal/robertf/README.md)
-- [Steven Lyktey](projects/personal/stevenl/README.md)
-- [Taylor Bird](projects/personal/taylorb/README.md)
-- [Vincent Smith](projects/personal/vincents/README.md)
+- [Andrew Griffith](projects/andrewg.md)
+- [Ashim Khadka](projects/ashimk.md)
+- [Ben Manekin](projects/benm.md)
+- [Bradley Hart](projects/bradleyh.md)
+- [Eric Honour](projects/erichr.md)
+- [Matt Ratliff](projects/mattr.md)
+- [Robert Ferney](projects/robertf.md)
+- [Steven Lyktey](projects/stevenl.md)
+- [Taylor Bird](projects/taylorb.md)
+- [Vincent Smith](projects/vincents.md)
