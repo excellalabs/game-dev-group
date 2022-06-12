@@ -10,8 +10,8 @@ A lot of the unity and unreal editor core commands and GUI features have signifi
 
 ## Blueprints v. C++ Development
 
-Blueprints are a cool low code interface Unreal has built on top of its engine, specifically for use by Unreal. Once you get over the initial confusion of:
-"hey 
+Blueprints are a cool low code interface Unreal has built on top of its engine, specifically for use by Unreal. Once you get over the initial confusion of how they work they are 
+actually pretty powerful and useful even if you know how to otherwise code out the game you are making, depending on your style of coding of course.
 
 Pros for Blueprints
 * Blueprints are good for rapid prototyping, make changes and run again fast
@@ -48,6 +48,21 @@ a typical way to use these two methods together is to maybe prototype with bluep
     * you can add actors to the project with the icon that looks like a cube with a plus sign
     * inside the top of the viewport you see buttons that look like a cursor, four arrow connected at their tails in the middle pointing outward, two curved arrows chasing each other's tails and a dot with an arrow pointing out of it. These are the grab, transform, rotate, scale controls and when you click them you get different tools on your selected actor. the hotkeys for these are useful because you use them all the time and they are the q, w, e, and r keys (sorry if you are a dvorak person, sure you can remap)
 
+### Ejecting and looking at the player
+* you can do this with f8 while the game is playing in your main viewport, it allows you to fly around your level scene and also select game objects and view them in the outliner. 
+* using this trick, you can view the default pawn object which will be where you were looking from when you ejected (this is in FPS view, if you are doing a third person POV then you would
+have some avatar for your player there).
+* Just like in unity, there is a player start actor in the outline and what unreal does is spawn the default player actor dynamically into this location when the game starts up.
+* 
+
+### Data Types
+    * pretty straightforward if you already know how to program
+    * Basic data types to know about are integers, floats, strings, bools
+    * objects and structs are there to group primitive data types together along with their behavior
+    * some structs that you see as Unity primitives, Vector, Rotator, and Transforms
+    * typical objects you would see would be actors and components
+
+
 ## Progremming With Blueprints Basics
 
 * best way to start for this is to create a new project and select blueprints as the type instead of C++
@@ -65,6 +80,15 @@ a typical way to use these two methods together is to maybe prototype with bluep
     * alt + click on a pin that is connected will sever the link between nodes. 
 * in the consext menu that lets you pick nodes, there is a checkbox for 'Context Sensitive' This is important because if you are getting to the context menu from an existing node's execution pins, having this box checked means the options the context menu provides for branching nodes will be restricted to those using the node you branched off of.
 * just because you have data pins hooked up between nodes, that doesn't mean one will trigger the other, you have to hook up their execution pins as well.
+
+### Getting Access To The Player's Transform
+* in the blueprint for the level you can right click and use the "Get Player Pawn" node for this, drag off of it and you have lots of context sensitive options, including "Get Actor Location" which will give the location portion of the transform that will be spawned when the level starts.
+
+### Getting Forward Vector and Performing Operations on it
+* you can get the forward vector either from a spawned actor or from its static mesh component. "Get Forward Vector". You can do this also with "Get Right Vector"
+
+### Vector operations
+* blueprints have operation nodes on some classes like vectors, and you can pull from a pin on a vector node and add things like 'x' which is the multiplication node. By default this will be vector ot vector multiplication, but you can change the pin by right clicking it so that your other value is a float instead or some other data type.
 
 
 ### Connection between blueprints and OO coding
@@ -92,6 +116,11 @@ a typical way to use these two methods together is to maybe prototype with bluep
     * careful to make sure that all actors that you want to behave like part of the physical world have physics enabled, or you might see some intersting behavior (objects moving through others and bouncing back out, for example).
     * you can get the static mesh component for actors inside a blueprint and then get some of the properties off of these copmonents directly and change them based on events. 
         * example, you can get the static mesh component for a cube object that has mass of 100.0 and then you can add a node for 'add impulse' to apply immediate force to the object corresponding to some vector in (x, y, z) coordinate space. There is also a box you can check on the 'add impulse' node that allows you to directly change the velocity, called 'Vel Change'
+
+## Getting Assets
+    * There are a lot of assets on the Unreal Marketplace, some of which are permanently Free, some of which are temporarily free, some of which are paid. There is a storefront system to check out assets from the epic games launcher marketplace like you were buying them and they kind of slowly sync into the 'vault' section of your library. It is pretty good, but it is sometimes slow so you have to wait even tghough you have clicked through and it shows you as 'owning' the free assets. Once they are in your Library > Vault page, you can easily add them as an asset to the project you are working on. 
+    * you can also add assets from one project to another with a simple migrate command. 
+    * convention folder structure for asset packs is to have a folder called 'meshes' for potential objects and actors to bring in, you have 'maps' for level maps, 
 
 
 
