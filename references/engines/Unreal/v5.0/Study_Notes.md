@@ -119,9 +119,7 @@ have some avatar for your player there).
 
 ## Getting Assets
     * There are a lot of assets on the Unreal Marketplace, some of which are permanently Free, some of which are temporarily free, some of which are paid. There is a storefront system to check out assets from the epic games launcher marketplace like you were buying them and they kind of slowly sync into the 'vault' section of your library. It is pretty good, but it is sometimes slow so you have to wait even tghough you have clicked through and it shows you as 'owning' the free assets. Once they are in your Library > Vault page, you can easily add them as an asset to the project you are working on. 
-    * you can also add assets from one project to another with a simple migrate command. 
-    * convention folder structure for asset packs is to have a folder called 'meshes' for potential objects and actors to bring in, you have 'maps' for level maps, 
-
+    * you can also add assets from one project to another with a simple migrate command.  * convention folder structure for asset packs is to have a folder called 'meshes' for potential objects and actors to bring in, you have 'maps' for level maps, 
 
 
 
