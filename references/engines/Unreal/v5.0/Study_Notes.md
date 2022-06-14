@@ -47,6 +47,8 @@ a typical way to use these two methods together is to maybe prototype with bluep
 * the widget ribbon bars top have a lot of what you need. 
     * you can add actors to the project with the icon that looks like a cube with a plus sign
     * inside the top of the viewport you see buttons that look like a cursor, four arrow connected at their tails in the middle pointing outward, two curved arrows chasing each other's tails and a dot with an arrow pointing out of it. These are the grab, transform, rotate, scale controls and when you click them you get different tools on your selected actor. the hotkeys for these are useful because you use them all the time and they are the q, w, e, and r keys (sorry if you are a dvorak person, sure you can remap)
+* When you are in the content drawer (that thing you press CTRL + spacebar to get to), you can use the filter by the search bar to restrict which types of objects you want to search for in your content across all of the asset packs you have downloaded and installed.
+* CTRL + Z is undo (as usual), but if you want to redo last command that is CTRL + Y
 
 ### Ejecting and looking at the player
 * you can do this with f8 while the game is playing in your main viewport, it allows you to fly around your level scene and also select game objects and view them in the outliner. 
@@ -109,6 +111,35 @@ have some avatar for your player there).
     * SpawnActor node allows you to create new actors while the game is running
     * Spawn Actor node has 3 data inputs which are all relating to transforms that can be applied to location, rotation and scale. 
 
+### Blueprints variables
+    * in the blueprints level editors and blueprints editors for actors, there is a whole other menu you can bring up on the side that doesn't come up by default and this is the 'My Blueprint' pane. you can find it under the 'Window' menu up top. 
+    * variables is one of the sections in this my blueprint pane. you can assign a name and value for it. 
+    * you will need to compile the variable after creating it to see it in the details pane. 
+    * when you drag a variable into the event graph section of the blueprint (ctrl for get and alt held down for set), you can create nodes for getting or setting the value of that variable. 
+
+### Branch Nodes
+    * blueprints answer to the if and switch control structures we know and love. 
+    * use a boolean variable as a trigger and then branch between the true and false paths
+    * there are also comparison nodes that return boolean values that we can use for branch nodes.
+    * right clicking and selecting "collapse to function" from the context menu is how you create new functions in the blueprint.
+    * when you have collapsed to a funciton, you can go in and look at the function's contents just by double clicking it in the event graph or in the functions section of the My Blueprint pane. 
+    * there is a new purple node that is named the same as the fuction and has a single execution pin that indicates where your function's entrypoint is.
+
+### Functions in blueprints
+    * so yeah blueprints do support the function abstraction and in fact most of the blueprint nodes ktaht you work with are functions. 
+    * you can make your own blueprint functions for reuse and code organization
+
+### Pure functions in blueprints
+    * you need execution pins in blueprints when your functions have side effects
+    * if you create a pure function, then you don't actually need execution pins.
+    * you can actually specify that you want a pure function by checking the checkbox in the details pane of when you have the function selected in your level blueprint.
+
+### OO programming in blueprints
+    * so a Blueprint is very much like a class in classical OO paradigm, and you can create functions that are member functions of that class, allowing the reusability of those functions within the context of that blueprint class. not sure how far this goes, like do they have inheritance and polymorphism with blueprints?? we'll find out.
+    * the way to do it is just to create a function in the blueprint class. that
+    will be a function available to instances of the class, so at the instance level not the class level. 
+    * within member functions you can get a reference to the Blueprint object as a node with a right click in the event graph for the blueprint member function and select "get reference to self"
+
 ## Simulating Physics For Actors
     * in the outliner view, under the details tab, there are actor properties and components. there are several buttons available to toggle through actor properties
     * one of those buttons is Physics, and within the list that appears under Physics there is a checkbox to 'Simulate Physics', checking that turn on physics simulation for that object
@@ -120,6 +151,25 @@ have some avatar for your player there).
 ## Getting Assets
     * There are a lot of assets on the Unreal Marketplace, some of which are permanently Free, some of which are temporarily free, some of which are paid. There is a storefront system to check out assets from the epic games launcher marketplace like you were buying them and they kind of slowly sync into the 'vault' section of your library. It is pretty good, but it is sometimes slow so you have to wait even tghough you have clicked through and it shows you as 'owning' the free assets. Once they are in your Library > Vault page, you can easily add them as an asset to the project you are working on. 
     * you can also add assets from one project to another with a simple migrate command.  * convention folder structure for asset packs is to have a folder called 'meshes' for potential objects and actors to bring in, you have 'maps' for level maps, 
+
+## Working With Levels and BSP geometry brushes
+    * you can make a new level from the file menu or with CTRL + N. basic template is often a good way to go.
+    * you can set which level your game starts in as the default  level for the editor or the game view in the project settings (gear on the t op right of the editor).
+    * using the quick add menu within your level, you can open up a portion of the editor called 'Place Actors Panel'. This has all sorts of additional menu options so instead of adding one off actors to your scene you can add geometry, lights, shapes, visual effects, cinematics andmore.
+    * geometry brushes can build up or carve out geometry
+    * easy recipe for a room. use the box brush to create a new brush. set the x, y and z dimensions to 2 meters less than what you want your room to be. then, create another brush as a copy. Then, go back to your original brush and make it 2 meters larger, this will be your wall thickness. then, go back to your subtractive brush and set the brush type to subtractive. That will create a room with the appropriate wall thickness. 
+    * don't forget you can organize geometry in your level using the outliner with folders. 
+
+## Lighting
+    * the starter scene comes with one omnidirectional and one directional light.
+    * if you have the directional light selected, you can use the rotate transform tool to control the angle of the light source. 
+
+## Compound Actors and Physics
+    * if you want a set of actors to act as a single, attached entity during physics simulation (imagine things that are supposed to be fastened together by something like a structure), you should nest child actors under the root static mesh component by dragging them in from the meshes in your content drawer to being underneath the mesh component of their parent in the details view of the outliner.
+
+## Collision Meshes
+    * you can get a view of what collision meshes (different than the geometry meshes from your CAD program) look like in the unreal editor with the dropdown that defaults to 'lit' just to the right of the toggle we have between parspective and orthographic views. some of the ones that come with assets by default may be too complicated of a mesh for clean physics collisions. you can actually double click and assset from within the content drawer to bring up an editor just for that asset and its materials. in this there is a drop down for collisions, where you can remove the collider completely (if you are simulating physics they will then fall through the floor) and then you can add back in a simpler collider mesh.
+
 
 
 
