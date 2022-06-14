@@ -8,7 +8,28 @@ C++ remains a more difficult language to learn than JS or C#, but Unreal has tak
 
 A lot of the unity and unreal editor core commands and GUI features have significant overlap, there are just different names for different things at some level. What differs (aside from Unreal's massive hard disk footprint and in some cases higher baseline hardware requirements) are things like overwhelm possibility, like in unity your baseline footprint is smaller and then you have all the plugins and such to add, then nuances like Unity's serialization strategies, how both engines handle patterns you might use to avoid having to have singleton game manager objects or objects that live across levels, and then there is the depth and difference to core engine capabilities like the asset pipeline, the physics. My hot take is, the deeper you go, the more the differences matter, the closer to a larger scale commercial game you get to the more the differences matter. I'm switching to unreal to learn, but any small projects and game jams I've done so far have been in unity. 
 
-## Blueprints v. C++ Development
+## Editor Quick Tips
+
+* if you are used to Unity there is quite a bit of overlap actually now.
+* Movement: 
+    * moving around in the editor you can press down right mouse button and then you pretty much have
+    an FPS camera with w,a,s,d keys for walking and then q, e keys for vertical movement, and you look around with mouse
+    * using left or middle click will constrain how the mouse movement affects your view through the scene using that same w,a,s,d,q,e scheme
+    * if you have a mouse wheel, you can use it to tune how fast your camera moves when you press the keys
+* Customization: 
+    * all the panels similar to unity, you start with a project outliner for all your 'actors' (unreal speak for unities 'game objects' or the more generic 'entities') and a Viewport which is your rendered 'level' (unity calls them 'scenes') preview.
+    * if you delete or move something you can always go to Window > Load Layout > Default Editor Layout to recover. can likely save custom layouts you like too.
+* Ctrl + Spacebar opens up the content drawer, which like Unity has the directory structure with all the 'Content' (unity calls this assets)
+    * if you want to export your game as a zip but exclude all the build files, in Unreal there is an option for this File > Zip Project that knows what to leave out. How clever.
+* the widget ribbon bars top have a lot of what you need. 
+    * you can add actors to the project with the icon that looks like a cube with a plus sign
+    * inside the top of the viewport you see buttons that look like a cursor, four arrow connected at their tails in the middle pointing outward, two curved arrows chasing each other's tails and a dot with an arrow pointing out of it. These are the grab, transform, rotate, scale controls and when you click them you get different tools on your selected actor. the hotkeys for these are useful because you use them all the time and they are the q, w, e, and r keys (sorry if you are a dvorak person, sure you can remap)
+* When you are in the content drawer (that thing you press CTRL + spacebar to get to), you can use the filter by the search bar to restrict which types of objects you want to search for in your content across all of the asset packs you have downloaded and installed.
+* CTRL + Z is undo (as usual), but if you want to redo last command that is CTRL + Y
+
+## Blueprints
+
+### Blueprints v. C++ Development
 
 Blueprints are a cool low code interface Unreal has built on top of its engine, specifically for use by Unreal. Once you get over the initial confusion of how they work they are 
 actually pretty powerful and useful even if you know how to otherwise code out the game you are making, depending on your style of coding of course.
@@ -31,24 +52,6 @@ But truth is both should be used in tandem, even for published games.
 
 a typical way to use these two methods together is to maybe prototype with blueprints that call third party libraries, then write libraries of your own in C++ that wrap or extend the Unreal core libraries, then eventually have Blueprints be a cool visual scripting language that calls down to both your custom C++ libraries and the Unreal core libraries. On a really large project or team maybe eventually you dispense with blueprints altogether.
 
-## Editor Quick Tips
-
-* if you are used to Unity there is quite a bit of overlap actually now.
-* Movement: 
-    * moving around in the editor you can press down right mouse button and then you pretty much have
-    an FPS camera with w,a,s,d keys for walking and then q, e keys for vertical movement, and you look around with mouse
-    * using left or middle click will constrain how the mouse movement affects your view through the scene using that same w,a,s,d,q,e scheme
-    * if you have a mouse wheel, you can use it to tune how fast your camera moves when you press the keys
-* Customization: 
-    * all the panels similar to unity, you start with a project outliner for all your 'actors' (unreal speak for unities 'game objects' or the more generic 'entities') and a Viewport which is your rendered 'level' (unity calls them 'scenes') preview.
-    * if you delete or move something you can always go to Window > Load Layout > Default Editor Layout to recover. can likely save custom layouts you like too.
-* Ctrl + Spacebar opens up the content drawer, which like Unity has the directory structure with all the 'Content' (unity calls this assets)
-    * if you want to export your game as a zip but exclude all the build files, in Unreal there is an option for this File > Zip Project that knows what to leave out. How clever.
-* the widget ribbon bars top have a lot of what you need. 
-    * you can add actors to the project with the icon that looks like a cube with a plus sign
-    * inside the top of the viewport you see buttons that look like a cursor, four arrow connected at their tails in the middle pointing outward, two curved arrows chasing each other's tails and a dot with an arrow pointing out of it. These are the grab, transform, rotate, scale controls and when you click them you get different tools on your selected actor. the hotkeys for these are useful because you use them all the time and they are the q, w, e, and r keys (sorry if you are a dvorak person, sure you can remap)
-* When you are in the content drawer (that thing you press CTRL + spacebar to get to), you can use the filter by the search bar to restrict which types of objects you want to search for in your content across all of the asset packs you have downloaded and installed.
-* CTRL + Z is undo (as usual), but if you want to redo last command that is CTRL + Y
 
 ### Ejecting and looking at the player
 * you can do this with f8 while the game is playing in your main viewport, it allows you to fly around your level scene and also select game objects and view them in the outliner. 
@@ -139,6 +142,13 @@ have some avatar for your player there).
     * the way to do it is just to create a function in the blueprint class. that
     will be a function available to instances of the class, so at the instance level not the class level. 
     * within member functions you can get a reference to the Blueprint object as a node with a right click in the event graph for the blueprint member function and select "get reference to self"
+
+### Connecting Levels In Blueprints
+    * using the function Open Level (By Name) or Open Level (By Object Reference)
+    * if you want to go to the same level, and you ahve get current levela by name, then you can use the other helper function blueprint node "Get Current Level Name"
+    * 
+
+
 
 ## Simulating Physics For Actors
     * in the outliner view, under the details tab, there are actor properties and components. there are several buttons available to toggle through actor properties
