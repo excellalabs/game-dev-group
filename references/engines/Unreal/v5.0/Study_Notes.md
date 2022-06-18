@@ -97,88 +97,102 @@ have some avatar for your player there).
 
 
 ### Connection between blueprints and OO coding
-    * you can think of Actors as different types of objects that  Unreal tracks and can be used in levels
-    * nodes are the methods on those objects, so functions within their scope
-    * other type of object that Unreal has more or less baked in is components. Unreal uses the component object model, so Actor objects have sets of component objects that allow data and behavior encapsulated into these components to be modularly added to the actor. 
-    * components are linked to the actor through references, so memory is dynamically allocated to hold portions of these larger more complex objects when it is necessary
-    * When you use blueprints to get a reference to a node in your scene (right clik the actor in the viewport and then go to level blueprint and right click and click 'get reference to xx'), that is how runtime will know to go to that address in memory and retrieve the reference to that object you selected, then you can get things off of it using pins and connectors.
-    * Classes and Instances
-        * in Blueprints you can create classes that share state and behavior. However, instances of blueprint classes are linked and share property values by default. It is important to note that while instances can diverge in the values of their state, if you change the state at the class level in a blueprint editor window, it will set the value for all instances of the BluePrint.
-        * going back to unity a little, if you are familiar with prefabs for game objects that analogy probably holds up for a while with the concept of Blueprint Classes, it is a reusable entity with set behavior and default state
-        * you do this by clicking the blueprint icon in the detail tab of the outliner panel in your main editor with some actor selected. This will create a new window that is like the level blueprint but it also contains a viewport screen since the actor blueprint has a corresponding 3d model probably. 
-        * blueprint classes can be accessed and modified, but all clones at the class level are linked, so if you change some of their properties state it will update across all clones of that blueprint class
-        * there is also a components panel in the actor blueprint editor window, and it can show you the same component properties that you'd find if you selected that actor in the main editor window and then went into the outliner and looked at the details.
+* you can think of Actors as different types of objects that  Unreal tracks and can be used in levels
+* nodes are the methods on those objects, so functions within their scope
+* other type of object that Unreal has more or less baked in is components. Unreal uses the component object model, so Actor objects have sets of component objects that allow data and behavior encapsulated into these components to be modularly added to the actor. 
+* components are linked to the actor through references, so memory is dynamically allocated to hold portions of these larger more complex objects when it is necessary
+* When you use blueprints to get a reference to a node in your scene (right clik the actor in the viewport and then go to level blueprint and right click and click 'get reference to xx'), that is how runtime will know to go to that address in memory and retrieve the reference to that object you selected, then you can get things off of it using pins and connectors.
+* Classes and Instances
+    * in Blueprints you can create classes that share state and behavior. However, instances of blueprint classes are linked and share property values by default. It is important to note that while instances can diverge in the values of their state, if you change the state at the class level in a blueprint editor window, it will set the value for all instances of the BluePrint.
+    * going back to unity a little, if you are familiar with prefabs for game objects that analogy probably holds up for a while with the concept of Blueprint Classes, it is a reusable entity with set behavior and default state
+    * you do this by clicking the blueprint icon in the detail tab of the outliner panel in your main editor with some actor selected. This will create a new window that is like the level blueprint but it also contains a viewport screen since the actor blueprint has a corresponding 3d model probably. 
+    * blueprint classes can be accessed and modified, but all clones at the class level are linked, so if you change some of their properties state it will update across all clones of that blueprint class
+    * there is also a components panel in the actor blueprint editor window, and it can show you the same component properties that you'd find if you selected that actor in the main editor window and then went into the outliner and looked at the details.
 
 
 ### Spawning Actors And Transforming Them
-    * SpawnActor node allows you to create new actors while the game is running
-    * Spawn Actor node has 3 data inputs which are all relating to transforms that can be applied to location, rotation and scale. 
+* SpawnActor node allows you to create new actors while the game is running
+* Spawn Actor node has 3 data inputs which are all relating to transforms that can be applied to location, rotation and scale. 
 
 ### Blueprints variables
-    * in the blueprints level editors and blueprints editors for actors, there is a whole other menu you can bring up on the side that doesn't come up by default and this is the 'My Blueprint' pane. you can find it under the 'Window' menu up top. 
-    * variables is one of the sections in this my blueprint pane. you can assign a name and value for it. 
-    * you will need to compile the variable after creating it to see it in the details pane. 
-    * when you drag a variable into the event graph section of the blueprint (ctrl for get and alt held down for set), you can create nodes for getting or setting the value of that variable. 
+* in the blueprints level editors and blueprints editors for actors, there is a whole other menu you can bring up on the side that doesn't come up by default and this is the 'My Blueprint' pane. you can find it under the 'Window' menu up top. 
+* variables is one of the sections in this my blueprint pane. you can assign a name and value for it. 
+* you will need to compile the variable after creating it to see it in the details pane. 
+* when you drag a variable into the event graph section of the blueprint (ctrl for get and alt held down for set), you can create nodes for getting or setting the value of that variable. 
 
 ### Branch Nodes
-    * blueprints answer to the if and switch control structures we know and love. 
-    * use a boolean variable as a trigger and then branch between the true and false paths
-    * there are also comparison nodes that return boolean values that we can use for branch nodes.
-    * right clicking and selecting "collapse to function" from the context menu is how you create new functions in the blueprint.
-    * when you have collapsed to a funciton, you can go in and look at the function's contents just by double clicking it in the event graph or in the functions section of the My Blueprint pane. 
-    * there is a new purple node that is named the same as the fuction and has a single execution pin that indicates where your function's entrypoint is.
+* blueprints answer to the if and switch control structures we know and love. 
+* use a boolean variable as a trigger and then branch between the true and false paths
+* there are also comparison nodes that return boolean values that we can use for branch nodes.
+* right clicking and selecting "collapse to function" from the context menu is how you create new functions in the blueprint.
+* when you have collapsed to a funciton, you can go in and look at the function's contents just by double clicking it in the event graph or in the functions section of the My Blueprint pane. 
+* there is a new purple node that is named the same as the fuction and has a single execution pin that indicates where your function's entrypoint is.
 
 ### Functions in blueprints
-    * so yeah blueprints do support the function abstraction and in fact most of the blueprint nodes ktaht you work with are functions. 
-    * you can make your own blueprint functions for reuse and code organization
+* so yeah blueprints do support the function abstraction and in fact most of the blueprint nodes ktaht you work with are functions. 
+* you can make your own blueprint functions for reuse and code organization
 
 ### Pure functions in blueprints
-    * you need execution pins in blueprints when your functions have side effects
-    * if you create a pure function, then you don't actually need execution pins.
-    * you can actually specify that you want a pure function by checking the checkbox in the details pane of when you have the function selected in your level blueprint.
+* you need execution pins in blueprints when your functions have side effects
+* if you create a pure function, then you don't actually need execution pins.
+* you can actually specify that you want a pure function by checking the checkbox in the details pane of when you have the function selected in your level blueprint.
 
 ### OO programming in blueprints
-    * so a Blueprint is very much like a class in classical OO paradigm, and you can create functions that are member functions of that class, allowing the reusability of those functions within the context of that blueprint class. not sure how far this goes, like do they have inheritance and polymorphism with blueprints?? we'll find out.
-    * the way to do it is just to create a function in the blueprint class. that
-    will be a function available to instances of the class, so at the instance level not the class level. 
-    * within member functions you can get a reference to the Blueprint object as a node with a right click in the event graph for the blueprint member function and select "get reference to self"
+* so a Blueprint is very much like a class in classical OO paradigm, and you can create functions that are member functions of that class, allowing the reusability of those functions within the context of that blueprint class. not sure how far this goes, like do they have inheritance and polymorphism with blueprints?? we'll find out.
+* the way to do it is just to create a function in the blueprint class. that
+will be a function available to instances of the class, so at the instance level not the class level. 
+* within member functions you can get a reference to the Blueprint object as a node with a right click in the event graph for the blueprint member function and select "get reference to self"
 
 ### Connecting Levels In Blueprints
-    * using the function Open Level (By Name) or Open Level (By Object Reference)
-    * if you want to go to the same level, and you ahve get current levela by name, then you can use the other helper function blueprint node "Get Current Level Name"
-    * 
-
-
+* using the function Open Level (By Name) or Open Level (By Object Reference)
+* if you want to go to the same level, and you ahve get current levela by name, then you can use the other helper function blueprint node "Get Current Level Name"
 
 ## Simulating Physics For Actors
-    * in the outliner view, under the details tab, there are actor properties and components. there are several buttons available to toggle through actor properties
-    * one of those buttons is Physics, and within the list that appears under Physics there is a checkbox to 'Simulate Physics', checking that turn on physics simulation for that object
-    * other useful basic properties in this view, 'Enable Gravity' and Mass, you can make it heavier or lighter. 
-    * careful to make sure that all actors that you want to behave like part of the physical world have physics enabled, or you might see some intersting behavior (objects moving through others and bouncing back out, for example).
-    * you can get the static mesh component for actors inside a blueprint and then get some of the properties off of these copmonents directly and change them based on events. 
-        * example, you can get the static mesh component for a cube object that has mass of 100.0 and then you can add a node for 'add impulse' to apply immediate force to the object corresponding to some vector in (x, y, z) coordinate space. There is also a box you can check on the 'add impulse' node that allows you to directly change the velocity, called 'Vel Change'
+* in the outliner view, under the details tab, there are actor properties and components. there are several buttons available to toggle through actor properties
+* one of those buttons is Physics, and within the list that appears under Physics there is a checkbox to 'Simulate Physics', checking that turn on physics simulation for that object
+* other useful basic properties in this view, 'Enable Gravity' and Mass, you can make it heavier or lighter. 
+* careful to make sure that all actors that you want to behave like part of the physical world have physics enabled, or you might see some intersting behavior (objects moving through others and bouncing back out, for example).
+* you can get the static mesh component for actors inside a blueprint and then get some of the properties off of these copmonents directly and change them based on events. 
+    * example, you can get the static mesh component for a cube object that has mass of 100.0 and then you can add a node for 'add impulse' to apply immediate force to the object corresponding to some vector in (x, y, z) coordinate space. There is also a box you can check on the 'add impulse' node that allows you to directly change the velocity, called 'Vel Change'
 
 ## Getting Assets
-    * There are a lot of assets on the Unreal Marketplace, some of which are permanently Free, some of which are temporarily free, some of which are paid. There is a storefront system to check out assets from the epic games launcher marketplace like you were buying them and they kind of slowly sync into the 'vault' section of your library. It is pretty good, but it is sometimes slow so you have to wait even tghough you have clicked through and it shows you as 'owning' the free assets. Once they are in your Library > Vault page, you can easily add them as an asset to the project you are working on. 
-    * you can also add assets from one project to another with a simple migrate command.  * convention folder structure for asset packs is to have a folder called 'meshes' for potential objects and actors to bring in, you have 'maps' for level maps, 
+* There are a lot of assets on the Unreal Marketplace, some of which are permanently Free, some of which are temporarily free, some of which are paid. There is a storefront system to check out assets from the epic games launcher marketplace like you were buying them and they kind of slowly sync into the 'vault' section of your library. It is pretty good, but it is sometimes slow so you have to wait even tghough you have clicked through and it shows you as 'owning' the free assets. Once they are in your Library > Vault page, you can easily add them as an asset to the project you are working on. 
+* you can also add assets from one project to another with a simple migrate command.  * convention folder structure for asset packs is to have a folder called 'meshes' for potential objects and actors to bring in, you have 'maps' for level maps, 
 
 ## Working With Levels and BSP geometry brushes
-    * you can make a new level from the file menu or with CTRL + N. basic template is often a good way to go.
-    * you can set which level your game starts in as the default  level for the editor or the game view in the project settings (gear on the t op right of the editor).
-    * using the quick add menu within your level, you can open up a portion of the editor called 'Place Actors Panel'. This has all sorts of additional menu options so instead of adding one off actors to your scene you can add geometry, lights, shapes, visual effects, cinematics andmore.
-    * geometry brushes can build up or carve out geometry
-    * easy recipe for a room. use the box brush to create a new brush. set the x, y and z dimensions to 2 meters less than what you want your room to be. then, create another brush as a copy. Then, go back to your original brush and make it 2 meters larger, this will be your wall thickness. then, go back to your subtractive brush and set the brush type to subtractive. That will create a room with the appropriate wall thickness. 
-    * don't forget you can organize geometry in your level using the outliner with folders. 
+* you can make a new level from the file menu or with CTRL + N. basic template is often a good way to go.
+* you can set which level your game starts in as the default  level for the editor or the game view in the project settings (gear on the t op right of the editor).
+* using the quick add menu within your level, you can open up a portion of the editor called 'Place Actors Panel'. This has all sorts of additional menu options so instead of adding one off actors to your scene you can add geometry, lights, shapes, visual effects, cinematics andmore.
+* geometry brushes can build up or carve out geometry
+* easy recipe for a room. use the box brush to create a new brush. set the x, y and z dimensions to 2 meters less than what you want your room to be. then, create another brush as a copy. Then, go back to your original brush and make it 2 meters larger, this will be your wall thickness. then, go back to your subtractive brush and set the brush type to subtractive. That will create a room with the appropriate wall thickness. 
+* don't forget you can organize geometry in your level using the outliner with folders. 
 
 ## Lighting
-    * the starter scene comes with one omnidirectional and one directional light.
-    * if you have the directional light selected, you can use the rotate transform tool to control the angle of the light source. 
+* the starter scene comes with one omnidirectional and one directional light.
+* if you have the directional light selected, you can use the rotate transform tool to control the angle of the light source. 
 
 ## Compound Actors and Physics
-    * if you want a set of actors to act as a single, attached entity during physics simulation (imagine things that are supposed to be fastened together by something like a structure), you should nest child actors under the root static mesh component by dragging them in from the meshes in your content drawer to being underneath the mesh component of their parent in the details view of the outliner.
+* if you want a set of actors to act as a single, attached entity during physics simulation (imagine things that are supposed to be fastened together by something like a structure), you should nest child actors under the root static mesh component by dragging them in from the meshes in your content drawer to being underneath the mesh component of their parent in the details view of the outliner.
 
 ## Collision Meshes
-    * you can get a view of what collision meshes (different than the geometry meshes from your CAD program) look like in the unreal editor with the dropdown that defaults to 'lit' just to the right of the toggle we have between parspective and orthographic views. some of the ones that come with assets by default may be too complicated of a mesh for clean physics collisions. you can actually double click and assset from within the content drawer to bring up an editor just for that asset and its materials. in this there is a drop down for collisions, where you can remove the collider completely (if you are simulating physics they will then fall through the floor) and then you can add back in a simpler collider mesh.
+* you can get a view of what collision meshes (different than the geometry meshes from your CAD program) look like in the unreal editor with the dropdown that defaults to 'lit' just to the right of the toggle we have between parspective and orthographic views. some of the ones that come with assets by default may be too complicated of a mesh for clean physics collisions. you can actually double click and assset from within the content drawer to bring up an editor just for that asset and its materials. in this there is a drop down for collisions, where you can remove the collider completely (if you are simulating physics they will then fall through the floor) and then you can add back in a simpler collider mesh.
+
+## C++ Development in Unreal
+
+### General Notes About Engine and Editor, How Software Dev Works With It
+* just like with any other type of dev, you have source code which is either blueprints or C++, then we have a compiler to build the source code into a binary executable. 
+* one interesting note here is that editor is customizable with code, so sometimes your target executable is a new editor and other times it is just the game you are building.
+* you will need to install visual studio compiler if you are going to use C++ with unreal and there is also a dependency on the dotnet sdk (3.1.42 for some reason it is old.). 
+* some helpful extensions for visual studio code are the C/C++ extension and the Unreal Engine 4 snippets extension by CAPTNCAPS
+
+### Compiling your C++ in VSCode for Unreal
+* recommended compiler is the visual studio one, so you have to install visual studio. the command to compile is going to Terminal menu and selecting 'execute build task'. Unreal will set up build tasks for compile targets and you can select debug vs development for the unit you are trying to compile. 
+* one big thing for VS code users who are usually not coding in microsoft C++/C#, when running these builds with visual studio, they will fail if your default terminal in vscode is git bash, you need to switch your default terminal back to cmd or else find another way to run the build in cmd (or maybe powershell)
+* you can compile your updated code in vs code using the 'execute build task' option. The unreal editor needs to then pick up these changes. This is done either by restarting the whole editor (what a time suck) or alternatively using the live compile option in the bottom right of the editor, you click the icon that looks like a histogram of little squares and it will kick off a recompile.
+* there are some issues with the live compile tool, mainly that if you shut down the editor after making changes to the values of your variables and adding new fields to an actor class, the next time you open the editor it may not show those changes. If you want the editor to remember the changes you made _in the editor_ then instead of running live compile (which will reset editor changes back to whatever is in your source code), you should build the code using the 'execute build task' option first.
+
+
+
 
 
 
